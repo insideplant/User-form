@@ -4,7 +4,10 @@ class ContactsController < ApplicationController
   end
 
   def create
-    render plain: contact_params
+    contact = Contact.new(contact_params)
+    p contact.name
+    contact.save
+    redirect_to thanks_contacts_path
   end
 
   def thanks
